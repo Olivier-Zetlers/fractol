@@ -67,7 +67,7 @@ RMFLAGS		:= -fr
 all: $(NAME)
 
 # Program linking
-$(NAME): $(OBJ) $(MLX) $(LIBFT)
+$(NAME): $(MLX) $(LIBFT) $(OBJ)
 	$(CC) $(CFLAGS) $(OBJ) $(LDFLAGS) $(LDLIBS) -o $@
 
 # External libraries building
