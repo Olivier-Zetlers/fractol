@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   keyboard_events.c                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ozetlers <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/08/06 20:21:30 by ozetlers          #+#    #+#             */
+/*   Updated: 2025/08/06 20:21:41 by ozetlers         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../inc/fractol.h"
 
 int	keyboard_handle_event(int keycode, t_app_ctx *app)
@@ -39,34 +51,6 @@ void	keyboard_handle_navigation(int keycode, t_app_ctx *app)
 		app->min_i += delta;
 	}
 }
-
-/*
-void	keyboard_handle_navigation(int keycode, t_app_ctx *app)
-{
-	double	delta;
-
-	if (keycode == KEY_RIGHT || keycode == KEY_LEFT)
-	{
-		delta = (app->max_r - app->min_r) * PAN_FACTOR;
-		if (keycode == KEY_RIGHT)
-			;
-		else
-			delta = -delta;
-		app->max_r += delta;
-		app->min_r += delta;
-	}
-	else
-	{
-		delta = (app->max_i - app->min_i) * PAN_FACTOR;
-		if (keycode == KEY_DOWN)
-			;
-		else
-			delta = -delta;
-		app->max_i += delta;
-		app->min_i += delta;
-	}
-}
-*/
 
 void	keyboard_handle_view_controls(int keycode, t_app_ctx *app)
 {

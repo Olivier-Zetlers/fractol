@@ -6,7 +6,7 @@
 /*   By: ozetlers <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/04 19:24:09 by ozetlers          #+#    #+#             */
-/*   Updated: 2025/08/04 19:24:11 by ozetlers         ###   ########.fr       */
+/*   Updated: 2025/08/06 20:16:31 by ozetlers         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,9 +92,8 @@ typedef struct s_app_ctx
 	int			flag_redraw;
 }	t_app_ctx;
 
-
-
-//int		app_close_and_exit(t_app_ctx *app);
+void	app_cleanup_resources(t_app_ctx *app);
+int		app_close_and_exit(t_app_ctx *app);
 int		initialize_app_ctx(t_app_ctx *app);
 int		keyboard_handle_event(int keycode, t_app_ctx *app);
 void	keyboard_handle_iterations(int keycode, t_app_ctx *app);
@@ -110,13 +109,5 @@ int		render_loop(t_app_ctx *app);
 double	str_to_double(const char *str);
 int		psychedelic_palette(int iteration, int max_iteration);
 int		validate_cli_arguments(int argc, char *argv[], t_app_ctx *app);
-
-
-// NEW
-void	app_cleanup_resources(t_app_ctx *app);
-int	app_close_and_exit(t_app_ctx *app);
-
-
-
 
 #endif
