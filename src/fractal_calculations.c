@@ -31,7 +31,7 @@ static int	iterate_julia_set(double x, double y, t_app_ctx *app)
 	double	tmp;
 	int		iteration;
 
-	zr = x;
+	zr = -x;
 	zi = y;
 	iteration = 0;
 	while (iteration < app->max_iter)
