@@ -2,10 +2,14 @@
 
 static void	image_set_pixel(t_image_buf *buf, int x, int y, int color)
 {
-	char	*pixel;
+	uint32_t	color_val;
+	char		*pixel;
 
+	if (x < 0 || x >= WIN_WIDTH || y < 0 || y >= WIN_HEIGHT)
+		return ;
 	pixel = buf->addr + (y * buf->line_size + x * (buf->bpp / 8));
-	*(int *)pixel = color;
+	color_val = (uint32_t) color;
+	ft_memcpy(pixel, &color_val, sizeof(color_val));
 }
 
 static int	iterate_julia_set(double x, double y, t_app_ctx *app)

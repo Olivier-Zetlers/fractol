@@ -27,11 +27,21 @@
 # define KEY_PRESS_MASK		1L
 # define NO_EVENT_MASK		0L
 
-# define KEY_DOWN		65362
-# define KEY_ESCAPE		65307
-# define KEY_LEFT		65361
-# define KEY_RIGHT		65363
-# define KEY_UP			65364
+# ifdef __APPLE__
+#  define KEY_DOWN		126
+#  define KEY_ESCAPE		53
+#  define KEY_LEFT		123
+#  define KEY_RIGHT		124
+#  define KEY_UP		125
+#  define F_FLAG		0
+# else
+#  define KEY_DOWN		65362
+#  define KEY_ESCAPE		65307
+#  define KEY_LEFT		65361
+#  define KEY_RIGHT		65363
+#  define KEY_UP		65364
+#  define F_FLAG		1
+# endif
 
 # define MOUSE_SCROLL_DOWN	5
 # define MOUSE_SCROLL_UP	4

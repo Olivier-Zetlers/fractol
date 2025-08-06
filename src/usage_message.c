@@ -3,6 +3,7 @@
 void	print_usage_and_exit(void)
 {
 	write(STDERR_FILENO, "Usage: ./fractol <type> [parameters]\n", 38);
+	write(STDERR_FILENO, "[parameters] must be between -2 and 2\n", 39);
 	write(STDERR_FILENO, "\nFractal types:\n", 16);
 	write(STDERR_FILENO, "  mandelbrot\n", 13);
 	write(STDERR_FILENO, "  julia [real] [imaginary]\n", 27);

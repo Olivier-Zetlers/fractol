@@ -25,6 +25,29 @@ void	keyboard_handle_navigation(int keycode, t_app_ctx *app)
 	if (keycode == KEY_RIGHT || keycode == KEY_LEFT)
 	{
 		delta = (app->max_r - app->min_r) * PAN_FACTOR;
+		if (keycode == KEY_LEFT)
+			delta = -delta;
+		app->max_r += delta;
+		app->min_r += delta;
+	}
+	else
+	{
+		delta = (app->max_i - app->min_i) * PAN_FACTOR;
+		if (keycode == KEY_UP)
+			delta = -delta;
+		app->max_i += delta;
+		app->min_i += delta;
+	}
+}
+
+/*
+void	keyboard_handle_navigation(int keycode, t_app_ctx *app)
+{
+	double	delta;
+
+	if (keycode == KEY_RIGHT || keycode == KEY_LEFT)
+	{
+		delta = (app->max_r - app->min_r) * PAN_FACTOR;
 		if (keycode == KEY_RIGHT)
 			;
 		else
@@ -43,6 +66,7 @@ void	keyboard_handle_navigation(int keycode, t_app_ctx *app)
 		app->min_i += delta;
 	}
 }
+*/
 
 void	keyboard_handle_view_controls(int keycode, t_app_ctx *app)
 {

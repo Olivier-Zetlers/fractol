@@ -11,10 +11,10 @@ static void	mouse_apply_zoom(t_app_ctx *app, double factor)
 	app->max_r -= width;
 	app->min_i += height;
 	app->max_i -= height;
-	if (factor < 1.0)
-		app->max_iter += 2;
-	else if (app->max_iter > 30)
-		app->max_iter -= 2;
+	if (factor > 0)
+		app->max_iter += ITER_ZOOM_STEP;
+	else if (factor < 0 && app->max_iter > 30)
+		app->max_iter -= ITER_ZOOM_STEP;
 }
 
 int	mouse_handle_zoom(int button, int x, int y, t_app_ctx *app)
