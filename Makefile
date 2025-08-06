@@ -14,7 +14,7 @@ CPPFLAGS	= -I$(HDR_DIR) -I$(MLX_DIR) -I$(LIBFT_DIR)/$(LIBFT_HDR_DIR)
 
 # Compiler
 CC		:= cc
-CFLAGS		:= -Wall -Wextra -Werror 				#-fsanitize=address,undefined
+CFLAGS		:= -Wall -Wextra -Werror					# -fsanitize=address,undefined
 
 #--------------------------------------------------------------------
 #  Linking
