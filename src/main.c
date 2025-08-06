@@ -10,12 +10,12 @@ static int	setup_mlx_hooks(t_app_ctx *app)
 	return (1);
 }
 
-int	main(int ac, char **av)
+int	main(int argc, char *argv[])
 {
 	t_app_ctx	app;
 
 	ft_bzero(&app, sizeof(t_app_ctx));
-	if (!validate_cli_arguments(ac, av, &app))
+	if (!validate_cli_arguments(argc, argv, &app))
 		return (EXIT_FAILURE);
 	if (!initialize_app_ctx(&app))
 	{

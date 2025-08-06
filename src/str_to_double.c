@@ -18,8 +18,9 @@ static const char	*skip_blanks_and_sign(const char *s, int *sign)
 
 static int	ft_isspace(unsigned char c)
 {
-	return (c == '\f' || c == '\n' || c == '\r' || c == '\t' || c == '\v' || c == ' ');
-}	
+	return (c == '\f' || c == '\n' || c == '\r'
+		|| c == '\t' || c == '\v' || c == ' ');
+}
 
 double	str_to_double(const char *str)
 {
