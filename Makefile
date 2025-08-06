@@ -44,6 +44,7 @@ HDR		:= $(HDR_DIR)/fractol.h
 # External library 1 (minilibx)
 MLX_DIR		:= minilibx-linux
 MLX		:= $(MLX_DIR)/libmlx.a
+MLX_URL		:= https://cdn.intra.42.fr/document/document/35013/minilibx-linux.tgz
 
 # External library 2 (libft)
 LIBFT_DIR	:= libft
@@ -70,11 +71,22 @@ all: $(NAME)
 $(NAME): $(MLX) $(LIBFT) $(OBJ)
 	$(CC) $(CFLAGS) $(OBJ) $(LDFLAGS) $(LDLIBS) -o $@
 
-# External libraries building
-$(MLX): 
+# Building MiniLibX
+$(MLX): | download-mlx
 	-@chmod +x $(MLX_DIR)/configure
 	$(MAKE) -C $(MLX_DIR) 
 
+# Automatic download rule for minilibx
+download-mlx:
+	@if [ ! -d "$(MLX_DIR)" ]; then \
+		wget -q $(MLX_URL) -O minilibx-linux.tgz || curl -s -L $(MLX_URL) -o minilibx-linux.tgz; \
+		mkdir -p tmp; \
+		tar -xzf minilibx-linux.tgz -C tmp; \
+		mv tmp/minilibx-linux .; \
+		rm -rf tmp minilibx-linux.tgz; \
+	fi
+
+# Building libft
 $(LIBFT): $(LIBFT_HDR)
 	$(MAKE) -C $(LIBFT_DIR) 
 
