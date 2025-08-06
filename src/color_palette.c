@@ -1,4 +1,4 @@
-#include "fractol.h"
+#include "../inc/fractol.h"
 
 int	psychedelic_palette(int iteration, int max_iteration)
 {

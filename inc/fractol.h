@@ -1,63 +1,74 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   fractol.h                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ozetlers <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/08/04 19:24:09 by ozetlers          #+#    #+#             */
+/*   Updated: 2025/08/04 19:24:11 by ozetlers         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef FRACTOL_H
 # define FRACTOL_H
 
 # include <stdlib.h>
 # include <unistd.h>
 # include <math.h>
-# include <minilibx-linux/mlx.h>
-# include <ctype.h> // DELETE WHEN REPLACING isdigit by ft_isdigit
-# include <string.h> // DELETE WHEN REPLACING strcmpt by ft_strcmp
+# include "mlx.h"
+# include "libft.h"
 
 /* ---------- X11 event types ---------- */
 /* These values are standard X11 event type codes */
-# define KEY_PRESS        2
-# define BUTTON_PRESS     4
-# define DESTROY_NOTIFY   17
+# define KEY_PRESS		2
+# define BUTTON_PRESS		4
+# define DESTROY_NOTIFY		17
 
 /* ---------- X11 event masks ---------- */
 /* These determine which events we want to receive */
-# define KEY_PRESS_MASK   1L
-# define BUTTON_PRESS_MASK 4L
-# define NO_EVENT_MASK    0L
+# define KEY_PRESS_MASK		1L
+# define BUTTON_PRESS_MASK	4L
+# define NO_EVENT_MASK		0L
 
 /* ---------- X11 key codes ---------- */
 /* Standard keyboard key codes for Linux X11 */
-# define KEY_ESCAPE       65307
-# define KEY_LEFT         65361
-# define KEY_RIGHT        65363
-# define KEY_UP           65362
-# define KEY_DOWN         65364
+# define KEY_ESCAPE		65307
+# define KEY_LEFT		65361
+# define KEY_RIGHT		65363
+# define KEY_DOWN		65362
+# define KEY_UP			65364
 
 /* ---------- Mouse button codes ---------- */
 /* Standard mouse button codes */
-# define MOUSE_SCROLL_UP   4
-# define MOUSE_SCROLL_DOWN 5
+# define MOUSE_SCROLL_UP	4
+# define MOUSE_SCROLL_DOWN	5
 
 /* ---------- constants ---------- */
-# define WIN_WIDTH      800
-# define WIN_HEIGHT     600
+# define WIN_WIDTH		800
+# define WIN_HEIGHT		600
 
 /* Default viewport boundaries */
-# define DEFAULT_MIN_R  -2.0
-# define DEFAULT_MAX_R  2.0
-# define DEFAULT_MIN_I  -1.5
-# define DEFAULT_MAX_I  1.5
-# define DEFAULT_MAX_ITER 50
+# define DEFAULT_MIN_R		-2.0
+# define DEFAULT_MAX_R		2.0
+# define DEFAULT_MIN_I		-1.5
+# define DEFAULT_MAX_I		1.5
+# define DEFAULT_MAX_ITER	50
 
 /* Default Julia set parameters */
-# define DEFAULT_JULIA_R -0.8
-# define DEFAULT_JULIA_I 0.156
+# define DEFAULT_JULIA_R	-0.8
+# define DEFAULT_JULIA_I	0.156
 
 /* Interaction constants */
-# define PAN_FACTOR     0.1
-# define ZOOM_FACTOR    0.1
-# define ITER_ZOOM_STEP 2
-# define ITER_MANUAL_STEP 10
-# define JULIA_PARAM_STEP 0.01
+# define PAN_FACTOR		0.1
+# define ZOOM_FACTOR		0.1
+# define ITER_ZOOM_STEP		2
+# define ITER_MANUAL_STEP	10
+# define JULIA_PARAM_STEP	0.01
 
 /* Iteration limits */
-# define MIN_ITER_LIMIT 10
-# define MAX_ITER_LIMIT 500
+# define MIN_ITER_LIMIT		10
+# define MAX_ITER_LIMIT		500
 
 /* ---------- custom types ---------- */
 typedef struct s_image_buf
@@ -82,6 +93,7 @@ typedef struct s_app_ctx
 	double		arg_i;
 	int			max_iter;
 	int			fractal_choice;
+	int			flag_redraw;
 }	t_app_ctx;
 
 int		initialize_app_ctx(t_app_ctx *app);

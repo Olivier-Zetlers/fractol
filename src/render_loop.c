@@ -1,4 +1,4 @@
-#include "fractol.h"
+#include "../inc/fractol.h"
 
 void	render_full_image(t_app_ctx *app)
 {
@@ -17,6 +17,10 @@ void	render_full_image(t_app_ctx *app)
 
 int	render_loop(t_app_ctx *app)
 {
-	render_full_image(app);
+	if (app->flag_redraw)
+	{
+		render_full_image(app);
+		app->flag_redraw = 0;
+	}
 	return (0);
 }

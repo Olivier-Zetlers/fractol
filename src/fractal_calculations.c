@@ -1,4 +1,4 @@
-#include "fractol.h"
+#include "../inc/fractol.h"
 
 static void	image_set_pixel(t_image_buf *buf, int x, int y, int color)
 {
@@ -59,7 +59,7 @@ void	render_draw_pixel(t_app_ctx *app, int x, int y)
 	int		iteration;
 
 	map_r = app->min_r + ((double)x * (app->max_r - app->min_r)) / WIN_WIDTH;
-	map_i = app->min_i + ((double)y * (app->max_i - app->min_i)) / WIN_HEIGHT;
+	map_i = app->max_i - ((double)y * (app->max_i - app->min_i)) / WIN_HEIGHT;
 	if (app->fractal_choice == 1)
 		iteration = iterate_mandelbrot_set(map_r, map_i, app);
 	else

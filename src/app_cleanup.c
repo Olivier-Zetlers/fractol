@@ -1,4 +1,4 @@
-#include "fractol.h"
+#include "../inc/fractol.h"
 
 int	app_close_and_exit(t_app_ctx *app)
 {

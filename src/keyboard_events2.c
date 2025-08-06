@@ -1,4 +1,4 @@
-#include "fractol.h"
+#include "../inc/fractol.h"
 
 void	keyboard_handle_zoom_out(t_app_ctx *app, double zoom_r, double zoom_i)
 {

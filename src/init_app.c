@@ -1,4 +1,4 @@
-#include "fractol.h"
+#include "../inc/fractol.h"
 
 static void	initialize_viewport(t_app_ctx *app);
 
@@ -26,6 +26,4 @@ static void	initialize_viewport(t_app_ctx *app)
 	app->min_i = -1.5;
 	app->max_i = 1.5;
 	app->max_iter = 50;
-	app->arg_r = -0.8;
-	app->arg_i = 0.156;
 }

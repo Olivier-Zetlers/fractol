@@ -1,4 +1,4 @@
-#include "fractol.h"
+#include "../inc/fractol.h"
 
 static int	setup_mlx_hooks(t_app_ctx *app)
 {
@@ -14,7 +14,7 @@ int	main(int ac, char **av)
 {
 	t_app_ctx	app;
 
-	bzero(&app, sizeof(t_app_ctx));
+	ft_bzero(&app, sizeof(t_app_ctx));
 	if (!validate_cli_arguments(ac, av, &app))
 		return (EXIT_FAILURE);
 	if (!initialize_app_ctx(&app))
@@ -23,7 +23,7 @@ int	main(int ac, char **av)
 		return (EXIT_FAILURE);
 	}
 	setup_mlx_hooks(&app);
-	render_full_image(&app);
+	app.flag_redraw = 1;
 	mlx_loop(app.mlx);
 	return (EXIT_SUCCESS);
 }

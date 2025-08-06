@@ -1,7 +1,8 @@
-#include "fractol.h"
+#include "../inc/fractol.h"
 
 int	keyboard_handle_event(int keycode, t_app_ctx *app)
 {
+	app->flag_redraw = 1;
 	if (keycode == KEY_ESCAPE)
 		app_close_and_exit(app);
 	else if (keycode == KEY_LEFT || keycode == KEY_RIGHT
@@ -25,7 +26,7 @@ void	keyboard_handle_navigation(int keycode, t_app_ctx *app)
 	{
 		delta = (app->max_r - app->min_r) * PAN_FACTOR;
 		if (keycode == KEY_RIGHT)
-			delta = delta;
+			;
 		else
 			delta = -delta;
 		app->max_r += delta;
@@ -35,7 +36,7 @@ void	keyboard_handle_navigation(int keycode, t_app_ctx *app)
 	{
 		delta = (app->max_i - app->min_i) * PAN_FACTOR;
 		if (keycode == KEY_DOWN)
-			delta = delta;
+			;
 		else
 			delta = -delta;
 		app->max_i += delta;

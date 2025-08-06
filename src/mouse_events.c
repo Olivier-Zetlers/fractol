@@ -1,4 +1,4 @@
-#include "fractol.h"
+#include "../inc/fractol.h"
 
 static void	mouse_apply_zoom(t_app_ctx *app, double factor)
 {
@@ -21,6 +21,7 @@ int	mouse_handle_zoom(int button, int x, int y, t_app_ctx *app)
 {
 	(void) x;
 	(void) y;
+	app->flag_redraw = 1;
 	if (button == MOUSE_SCROLL_UP)
 		mouse_apply_zoom(app, 0.1);
 	else if (button == MOUSE_SCROLL_DOWN)
